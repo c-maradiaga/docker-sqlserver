@@ -1,0 +1,17 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver2022
+    hostname: sqlserver2022
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Totalnet2010*
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  sqlserver_data:
